@@ -76,8 +76,8 @@ void User::Pop_My_balloon()
     balloon.Pop_balloon();
 }
 
-void User::add_balloon(GLfloat idx_x, GLfloat idx_y)
+void User::add_balloon()
 {
-    balloon.add_balloon(idx_x,idx_y);
+    balloon.add_balloon(user_x,user_y);
 }
 

@@ -29,6 +29,7 @@ public:
     void Pop_balloon();
     void Draw_balloon();
     void add_balloon(GLfloat idx_x, GLfloat idx_y);
+    void Auto_balloon(GLfloat idx_x, GLfloat idx_y);
 };
 
 #endif // WATER_BALLOON_H_INCLUDED

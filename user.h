@@ -19,7 +19,7 @@ public :
     void Draw_My_balloon();
 
     void Pop_My_balloon();
-    void add_balloon(GLfloat idx_x, GLfloat idx_y);
+    void add_balloon();
 
 };
 #endif // USER_H_INCLUDED

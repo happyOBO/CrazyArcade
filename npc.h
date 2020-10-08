@@ -10,9 +10,13 @@ private :
     GLfloat npc_x;
     GLfloat npc_y;
     int move_term;
+    Water_balloon balloon;
 public :
-    NPC(GLfloat x, GLfloat y, int c);
+    NPC(GLfloat x, GLfloat y);
     void draw_NPC();
     void Auto_Move(User usr);
+    void Draw_My_balloon();
+    void Pop_My_balloon();
+    void Auto_balloon();
 };
 #endif // NPC_H_INCLUDED

@@ -16,10 +16,8 @@
 #include "npc.h"
 
 
-
-
 User usr(0.0,0.0);
-NPC np1(5.0, 5.0,1); // call class npc
+NPC np1(5.0, 5.0); // call class npc
 
 
 void Draw_Wallpaper()
@@ -65,10 +63,13 @@ void Idlefunc()
     glClear(GL_COLOR_BUFFER_BIT);
     Draw_grid();
     np1.Auto_Move(usr);
-    usr.DrawChar();
-    np1.draw_NPC();
+    np1.Draw_My_balloon();
+    np1.Pop_My_balloon();
+    np1.Auto_balloon();
     usr.Draw_My_balloon();
     usr.Pop_My_balloon();
+    np1.draw_NPC();
+    usr.DrawChar();
     glFlush();
 
     glutPostRedisplay();
@@ -97,7 +98,7 @@ void MyKeyboard(unsigned char key, int p, int k) {
          usr.move_user(0,-1);
      break;
  case 32 :
-     usr.add_balloon(x_location,y_location);
+     usr.add_balloon();
 //     np1.touch_NPC(usr);
 //    np2.touch_NPC();
 //    np3.touch_NPC();
@@ -118,7 +119,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_RGB);
     glutInitWindowSize(500,500);
     glutInitWindowPosition(0,0);
-    glutCreateWindow("AIRPLANE");
+    glutCreateWindow("Crazy Arcade");
     srand((unsigned int)time(0));
     for(int i = 0;i<10;i++)
     {

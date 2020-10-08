@@ -1,9 +1,9 @@
 #include "npc.h"
 
-NPC::NPC(GLfloat x, GLfloat y, int c)
-    : npc_x(x), npc_y(y), color(c) , move_term(400)
+NPC::NPC(GLfloat x, GLfloat y)
+    : npc_x(x), npc_y(y), move_term(400)
 {
-
+    balloon.Init(2);
 }
 void NPC::draw_NPC()
 {
@@ -11,20 +11,20 @@ void NPC::draw_NPC()
         glTranslatef(npc_x,npc_y,0.0);
 
     glPushMatrix();
-        glColor3f(0.3,0.5,0.7);
+        glColor3f(0.4,0.4,0.9);
         glutSolidCube(2.5 * x);
     glPopMatrix();
 
     glPushMatrix();
         glBegin(GL_LINES);
-            glColor3f(1.0 - 0.3, 1.0 - 0.5,1.0 - 0.7);
+            glColor3f(1.0 - 0.1, 1.0 - 0.7,1.0 - 0.7);
             glVertex3f(0.5 * x,0.5 * x,0.0);
             glVertex3f(x,x,0.0);
             glVertex3f(-0.5 * x,0.5 * x,0.0);
             glVertex3f(-x,x,0.0);
         glEnd();
         glBegin(GL_POLYGON);
-            glColor3f(1.0 - 0.3, 1.0 - 0.5,1.0 - 0.7);
+            glColor3f(1.0 - 0.1, 1.0 - 0.7,1.0 - 0.7);
             glVertex3f(0.0, 0.0 ,0.0);
             glVertex3f(-x,-x,0.0);
             glVertex3f(x,-x,0.0);
@@ -64,6 +64,19 @@ void NPC::Auto_Move(User usr)
 
 
 }
+void NPC::Draw_My_balloon()
+{
+    balloon.Draw_balloon();
+}
 
+void NPC::Pop_My_balloon()
+{
+    balloon.Pop_balloon();
+}
+
+void NPC::Auto_balloon()
+{
+    balloon.Auto_balloon(npc_x,npc_y);
+}
 
 

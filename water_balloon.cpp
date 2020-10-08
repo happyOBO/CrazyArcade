@@ -13,7 +13,6 @@ pair<GLfloat, GLfloat> One_balloon::get_ball_idx()
 
 Water_balloon::Water_balloon()
 {
-    balloon_color = 0;
     max_balloons = 3;
     water_steams = 2;
 }
@@ -118,3 +117,19 @@ void Water_balloon::add_balloon(GLfloat idx_x, GLfloat idx_y)
     }
 }
 
+void Water_balloon::Auto_balloon(GLfloat idx_x, GLfloat idx_y)
+{
+    if(max_balloons > ball_vector.size())
+    {
+        for(int i = 0; i < ball_vector.size(); i++)
+        {
+            pair<GLfloat,GLfloat> ball_idx = ball_vector[i].get_ball_idx();
+            if(ball_idx.first == idx_x || ball_idx.second == idx_y)
+            {
+                return;
+            }
+        }
+        One_balloon new_ball = One_balloon(idx_x, idx_y);
+        ball_vector.push_back( new_ball);
+    }
+}
